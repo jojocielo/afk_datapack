@@ -1,4 +1,4 @@
 :: Remove old zip(s)
-if exist Template.zip del Template.zip
+if exist afk.zip del afk.zip
 :: Make new zip(s)
-tar -C template -acf Template.zip *
+tar -C afk -acf afk.zip *
