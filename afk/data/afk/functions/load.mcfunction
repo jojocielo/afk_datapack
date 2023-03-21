@@ -1,7 +1,7 @@
 # Called on World (Re)Load
 
 # Notify Chat of (Re)Load
-execute run tellraw @a {"text":"(Re)Loaded AFK Data Pack", "color":"#0033AA"}
+execute run tellraw @a {"text":"(Re)Loaded afk data pack", "color":"#0033AA"}
 
 # Call Handler Loaders
 execute run function afk:handler_loaders/player_location_handler_loader

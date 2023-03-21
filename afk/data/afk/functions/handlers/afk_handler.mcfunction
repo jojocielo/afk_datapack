@@ -3,10 +3,10 @@
 # Increment Player afk_ticks
 execute as @a run scoreboard players add @s afk_ticks 1
 
-# If did_location_change, reset afk_ticks
-#execute as @a if score @s did_locaton_change matches 1 run scoreboard players set @s afk_ticks 0
-# If is_player_moving, reset afk_ticks
-execute as @a if score @s is_player_moving matches 1 run scoreboard players set @s afk_ticks 0
+# If not is_location_same (predicate), reset afk_ticks
+#execute as @a[predicate=!afk:is_location_same] run scoreboard players set @s afk_ticks 0
+# If not is_player_still (predicate), reset afk_ticks
+execute as @a[predicate=!afk:is_player_still] run scoreboard players set @s afk_ticks 0
 
 # Store prev Value of is_afk
 execute as @a store result score @s was_afk run scoreboard players get @s is_afk
