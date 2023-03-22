@@ -1,7 +1,13 @@
 # Handle on (Re)Load for player_move_handler.mcfunction
 
-# NOTE: I left out minecart and other water related movement because they are utilized by some afk farms
-# They could be added simply by copying how `is_sprinting` is handled
+# NOTE: I left out movement modes below because they are utilized by some afk farms/creative mode
+# They can be added simply by copying how `is_swimming` is handled
+#scoreboard objectives add is_flying minecraft.custom:minecraft.fly_one_cm
+#scoreboard objectives add is_walking_on_water minecraft.custom:minecraft.walk_on_water_one_cm
+#scoreboard objectives add is_walking_under_water minecraft.custom:minecraft.walk_under_water_one_cm
+#scoreboard objectives add is_riding_minecart minecraft.custom:minecraft.minecart_one_cm
+# Fall only updates when upon landing, and if was greater than a certain height (difficult to use)
+#scoreboard objectives add is_falling minecraft.custom:minecraft.fall_one_cm
 
 # Add Player Movement Objectives
 scoreboard objectives add movement_tick dummy

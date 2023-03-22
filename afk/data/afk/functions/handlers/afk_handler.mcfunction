@@ -1,4 +1,5 @@
 # Check if Player is AFK and Handle Accordingly
+# Set Tag: is_afk
 
 # Increment Player afk_ticks
 execute as @a run scoreboard players add @s afk_ticks 1
@@ -33,7 +34,7 @@ execute as @a if score @s did_afk_begin matches 1 run effect give @s minecraft:s
 # Handle did_afk_end
 execute as @a if score @s did_afk_end matches 1 run tag @s remove is_afk
 ## Reset to default movement speed (this is the value as of 1.19.4, though I am not sure if it the same for other versions)
-# TODO: Could possibly store in scoreboard and use scaling, but that seems more likely to cause issues
+## TODO: Could possibly store in scoreboard and use scaling, but that seems more likely to cause issues
 execute as @a if score @s did_afk_end matches 1 run attribute @s minecraft:generic.movement_speed base set 0.10000000149011612
 execute as @a if score @s did_afk_end matches 1 run effect clear @s minecraft:regeneration
 execute as @a if score @s did_afk_end matches 1 run effect clear @s minecraft:resistance
