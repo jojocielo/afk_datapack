@@ -1,5 +1,5 @@
 # Check if Player is AFK and Handle Accordingly
-# Set Tag: is_afk
+# Sets Tag: is_afk
 
 # Increment Player afk_ticks
 execute as @a run scoreboard players add @s afk_ticks 1
