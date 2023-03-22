@@ -10,8 +10,8 @@ scoreboard objectives add motion_y dummy
 scoreboard objectives add motion_z dummy
 scoreboard objectives add walk_dist minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add is_walking dummy
-scoreboard objectives add is_sprinting minecraft.custom:minecraft.sprint_one_cm
-scoreboard objectives add is_crouch_walking minecraft.custom:minecraft.crouch_one_cm
+scoreboard objectives add crouch_dist minecraft.custom:minecraft.crouch_one_cm
+scoreboard objectives add is_crouch_walking dummy
 scoreboard objectives add is_jumping minecraft.custom:minecraft.jump
 scoreboard objectives add is_using_elytra minecraft.custom:minecraft.aviate_one_cm
 # (minecraft.custom:minecraft.climb_one_cm) only counts when climbing up (not down)
@@ -32,7 +32,7 @@ scoreboard objectives add is_player_moving dummy
 #scoreboard objectives setdisplay sidebar motion_z
 #scoreboard objectives setdisplay sidebar walk_dist
 #scoreboard objectives setdisplay sidebar is_walking
-#scoreboard objectives setdisplay sidebar is_sprinting
+#scoreboard objectives setdisplay sidebar crouch_dist
 #scoreboard objectives setdisplay sidebar is_crouch_walking
 #scoreboard objectives setdisplay sidebar is_jumping
 #scoreboard objectives setdisplay sidebar is_using_elytra

@@ -1,101 +1,27 @@
 [
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_walking"
+    {
+        "condition": "minecraft:entity_scores",
+        "entity": "this",
+        "scores": {
+            "is_walking": 0,
+            "is_crouch_walking": 0,
+            "is_jumping": 0,
+            "is_climbing": 0,
+            "is_swimming": 0,
+            "is_using_elytra": 0,
+            "is_riding_boat": 0,
+            "is_riding_horse": 0,
+            "is_riding_pig": 0,
+            "is_riding_strider": 0
+        }
     },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_sprinting"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_crouch_walking"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_jumping"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_climbing"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_swimming"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_using_elytra"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_riding_boat"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_riding_horse"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_riding_pig"
-    },
-    "range": 0
-  },
-  {
-    "condition": "minecraft:value_check",
-    "value": {
-      "type": "minecraft:score",
-      "target": "this",
-      "score": "is_riding_strider"
-    },
-    "range": 0
-  }
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "flags": {
+          "is_sprinting": false
+        }
+      }
+    }
 ]
