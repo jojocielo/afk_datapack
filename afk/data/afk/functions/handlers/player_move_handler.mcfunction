@@ -1,5 +1,5 @@
 # Get, Handle, and Store Player Movement Data
-# Used by Predicate: is_player_still
+# Sets Tag: is_still
 
 # Increment movement_tick
 # Used to accumulate distance over 2 ticks rather than 1,
@@ -12,6 +12,13 @@ execute as @a run scoreboard players add @s movement_tick 1
 # (i.e. mobs pushing/hitting you, sliding on ice, getting to edge of water stream, etc.)
 execute as @a store success score @s is_walking run execute as @s[tag=!is_afk] unless score @s walk_dist matches 0
 execute as @a store success score @s is_crouch_walking run execute as @s[tag=!is_afk] unless score @s crouch_dist matches 0
+
+# Set from Player NBT Data
+execute as @a store result score @s is_on_ground run data get entity @s OnGround
+
+# Handle is_still tag
+execute as @a[predicate=afk:is_player_still, tag=!is_still] run tag @s add is_still
+execute as @a[predicate=!afk:is_player_still, tag=is_still] run tag @s remove is_still
 
 # Reset Movement Values (to avoid overflow due to counting indefinitely)
 execute as @a if score @s movement_tick matches 2.. run scoreboard players set @s walk_dist 0

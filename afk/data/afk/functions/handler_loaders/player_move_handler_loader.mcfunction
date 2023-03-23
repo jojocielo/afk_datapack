@@ -11,9 +11,6 @@
 
 # Add Player Movement Objectives
 scoreboard objectives add movement_tick dummy
-scoreboard objectives add motion_x dummy
-scoreboard objectives add motion_y dummy
-scoreboard objectives add motion_z dummy
 scoreboard objectives add walk_dist minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add is_walking dummy
 scoreboard objectives add crouch_dist minecraft.custom:minecraft.crouch_one_cm
@@ -33,9 +30,6 @@ scoreboard objectives add is_player_moving dummy
 
 # Debug: Show Player Movement Objectives
 #scoreboard objectives setdisplay sidebar movement_tick
-#scoreboard objectives setdisplay sidebar motion_x
-#scoreboard objectives setdisplay sidebar motion_y
-#scoreboard objectives setdisplay sidebar motion_z
 #scoreboard objectives setdisplay sidebar walk_dist
 #scoreboard objectives setdisplay sidebar is_walking
 #scoreboard objectives setdisplay sidebar crouch_dist

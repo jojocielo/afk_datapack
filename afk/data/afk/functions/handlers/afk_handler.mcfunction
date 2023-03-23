@@ -4,10 +4,10 @@
 # Increment Player afk_ticks
 execute as @a run scoreboard players add @s afk_ticks 1
 
-# If not is_location_same (predicate), reset afk_ticks
-#execute as @a[predicate=!afk:is_location_same] run scoreboard players set @s afk_ticks 0
-# If not is_player_still (predicate), reset afk_ticks
-execute as @a[predicate=!afk:is_player_still] run scoreboard players set @s afk_ticks 0
+# If not is_location_same (tag), reset afk_ticks
+#execute as @a[tag=!is_location_same] run scoreboard players set @s afk_ticks 0
+# If not is_still (tag), reset afk_ticks
+execute as @a[tag=!is_still] run scoreboard players set @s afk_ticks 0
 
 # Store prev Value of is_afk
 execute as @a store result score @s was_afk run scoreboard players get @s is_afk
@@ -21,8 +21,11 @@ execute as @a store success score @s did_afk_mode_change run execute unless scor
 execute as @a store success score @s did_afk_begin run execute if score @s is_afk matches 1 if score @s did_afk_mode_change matches 1
 execute as @a store success score @s did_afk_end run execute if score @s is_afk matches 0 if score @s did_afk_mode_change matches 1
 
+# Handle is_afk tag
+execute as @a[tag=!is_afk] if score @s is_afk matches 1 run tag @s add is_afk
+execute as @a[tag=is_afk] if score @s is_afk matches 0 run tag @s remove is_afk
+
 # Handle did_afk_begin
-execute as @a if score @s did_afk_begin matches 1 run tag @s add is_afk
 execute as @a if score @s did_afk_begin matches 1 run attribute @s minecraft:generic.movement_speed base set 0
 execute as @a if score @s did_afk_begin matches 1 run effect give @s minecraft:regeneration 86400 255
 execute as @a if score @s did_afk_begin matches 1 run effect give @s minecraft:resistance 86400 255
@@ -32,7 +35,6 @@ execute as @a if score @s did_afk_begin matches 1 run effect give @s minecraft:s
 execute as @a if score @s did_afk_begin matches 1 run effect give @s minecraft:slow_falling 86400 255
 
 # Handle did_afk_end
-execute as @a if score @s did_afk_end matches 1 run tag @s remove is_afk
 ## Reset to default movement speed (this is the value as of 1.19.4, though I am not sure if it the same for other versions)
 ## TODO: Could possibly store in scoreboard and use scaling, but that seems more likely to cause issues
 execute as @a if score @s did_afk_end matches 1 run attribute @s minecraft:generic.movement_speed base set 0.10000000149011612
